@@ -1,25 +1,40 @@
 const menuToggle = document.querySelector(".menuToggle");
 const navigation = document.querySelector(".navigation");
-
-menuToggle.onclick = function () {
-  navigation.classList.toggle("open");
-};
-
 const list = document.querySelectorAll(".list");
 
-/* function activarLink() {
-  list.forEach((item) => item.classList.remove("active"));
-  this.classList.add("active");
-}
-
-list.forEach((item) => item.addEventListener("click", activarLink));
- */
+menuToggle.addEventListener("click", () => {
+  navigation.classList.toggle("open");
+});
 
 list.forEach((elemento) =>
   elemento.addEventListener("click", () => {
-    list.forEach((element) => element.classList.remove("active"));
-    if (elemento.classList.contains("list")) {
+    if (elemento.classList.contains("active")) {
+      elemento.classList.remove("active");
+    } else {
+      list.forEach((element) => element.classList.remove("active"));
       elemento.classList.add("active");
     }
   })
 );
+
+/* código imitando a 369 */
+/* list.forEach((elemento) =>
+  elemento.addEventListener("click", () => {
+    if (elemento.classList.contains("list")) {
+      list.forEach((element) => element.classList.remove("active"));
+      elemento.classList.add("active");
+    }
+  })
+); */
+
+/* código para eliminar botones activos de forma grupal */
+/* list.forEach((elemento) =>
+  elemento.addEventListener("click", () => {
+    if (elemento.classList.contains("active")) {
+      list.forEach((element) => element.classList.remove("active"));
+    } else {
+      elemento.classList.add("active");
+    }
+  })
+);
+ */
