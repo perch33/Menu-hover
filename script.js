@@ -2,7 +2,29 @@ const menuToggle = document.querySelector(".menuToggle");
 const navigation = document.querySelector(".navigation");
 const list = document.querySelectorAll(".list");
 
+/* código 369 */
+
 menuToggle.addEventListener("click", () => {
+  navigation.classList.toggle("open");
+});
+
+function activarLink() {
+  list.forEach((item) => {
+    if (this.classList.contains("active")) {
+      item.classList.remove("active");
+      this.classList.remove("active");
+    } else {
+      item.classList.remove("active");
+      this.classList.add("active");
+    }
+  });
+}
+
+list.forEach((item) => item.addEventListener("click", activarLink));
+
+/* código propio */
+
+/* menuToggle.addEventListener("click", () => {
   navigation.classList.toggle("open");
 });
 
@@ -15,7 +37,7 @@ list.forEach((elemento) =>
       elemento.classList.add("active");
     }
   })
-);
+); */
 
 /* código imitando a 369 */
 /* list.forEach((elemento) =>
